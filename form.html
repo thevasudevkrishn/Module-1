@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bharat Parmar</title>
+
+    <style>
+        #container{
+            width: 50%;
+            height: auto;
+            background-color:#88BDBC;
+            margin-left: 25%;
+            color: white;
+            padding: 20px;
+        }
+        .form{
+            width: 400px;
+            height: 30px;
+        }
+        #div1{
+            margin-left: 180px;
+        }
+        #first{
+            color: red;
+        }
+    </style>
+
+<script>
+
+    function validation(){
+
+        let fn = document.forms["myform"]["fn"].value
+
+        if(fn=="" || fn ==null){
+            document.getElementById("first").innerHTML="please fill first name";
+            return false
+        }else{
+            document.getElementById("first").innerHTML="";
+        }
+
+        let ln = document.forms["myform"]["ln"].value;
+
+        if(ln=="" || ln==null){
+            document.getElementById("ln").innerHTML="please fill last name";
+            return false
+        }else{
+            document.getElementById("ln").innerHTML="";
+        }
+
+        let password=document.forms["myform"]["password"].value;
+
+        if(password=="" || password==null){
+            document.getElementById("pass").innerHTML="Please Enter Your Password";
+            return false
+        }else{
+            document.getElementById("pass").innerHTML=""
+        }
+        if(!(password.length>=3 && password.length<=8)){
+            document.getElementById("char").innerHTML="Please Provid min 3 and max 8 char in password";
+            return false;
+        }else{
+            document.getElementById("char").innerHTML="";
+        }
+
+        let cpass = document.forms["myform"]["cpassword"].value;
+
+        if(cpass=="" || cpass==null){
+            document.getElementById("confpass").innerHTML="Please fill Conf Password";
+            return false;
+        }else{
+            document.getElementById("confpass").innerHTML="";
+        }
+
+        if(!(password==cpass)){
+            document.getElementById("alert").innerHTML="Please fill Same Password";
+            return false;
+        }else{
+            document.getElementById("alert").innerHTML="";
+        }
+
+        let email = document.forms["myform"]["email"].value;
+
+        if(email=="" || email==null){
+            document.getElementById("email").innerHTML="Please fill Same Password";
+            return false;
+        }else{
+            document.getElementById("email").innerHTML="";
+        }
+
+        let mail = /^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,4}$/;
+
+        if(!mail.test(email)){
+            document.getElementById("check").innerHTML="Please file Proper Email Address"
+            return false;
+        }else{
+            document.getElementById("check").innerHTML="";
+        }
+
+        let phone = document.forms["myform"]["phone"].value;
+
+        if(phone=="" || phone==null){
+            document.getElementById("phon").innerHTML="Please fill Mobile Number";
+            return false;
+        }else{
+            document.getElementById("phon").innerHTML="";
+        }
+
+        let chkphon = /^[0-9]{10,11}$/;
+
+        if(!chkphon.test(phone)){
+            document.getElementById("chkphon").innerHTML="please Enter valid mobile Number";
+            return false;
+        }else{
+            document.getElementById("chkphone").innerHTML=""
+        }
+
+        var chk_arr = document.getElementsByName("chk");
+        
+        if(chk_arr[0].checked == true) 
+        {
+                    
+        } 
+        else if(chk_arr[1].checked == true) 
+        {
+                    
+        } 
+        else if(chk_arr[2].checked == true) 
+        {
+                    
+        } 
+        else if(chk_arr[3].checked == true) 
+        {
+                    
+        }
+        else 
+        {
+            alert('! Please Select any one Hobby ');  // alert msg
+            return false;
+        }
+
+        var gen_arr = document.getElementsByName("gender");
+        if (gen_arr[0].checked == true) 
+        {
+                    
+        } 
+        else if (gen_arr[1].checked == true) 
+        {
+                    
+        } 
+        else 
+        {
+            alert('! Please Select Gender');  // alert msg
+            return false;
+        }
+    }
+
+    
+
+
+</script>
+
+</head>
+<body>
+    
+    <div id="container">
+
+        <h1 style="text-align:center">Registretion Form</h1>
+        <hr >
+        <hr>
+
+        <br>
+        
+        <div id="div1">
+
+            <form name="myform" onsubmit="return validation()">
+                <h3> First Name </h3>
+                <input type="text" name="fn" class="form"><br>
+                <span id="first"></span>
+
+                <h3> Last Name </h3>
+                <input type="text" name="ln" class="form"><br>
+                <span id="ln" style="color:red ;"></span>
+
+                <h3> Password </h3>
+                <input type="password" name="password" class="form"><br>
+                <span id="pass" style="color:red;"></span>
+                <span id="char" style="color: red;"></span>
+
+                <h3>Confirm Password</h3>
+                <input type="password" name="cpassword" class="form"><br>
+                <span id="confpass" style="color:red;"></span>
+                <span id="alert" style="color: red;"></span>
+
+                <h3>Email Address</h3>
+                <input type="text" name="email" class="form"><br>
+                <span id="email" style="color:red;"></span>
+                <span id="check" style="color:red;"></span>
+
+                <h3>Phone Number</h3>
+                <input type="number" name="phone" class="form"><br>
+                <span id="phon" style="color:red;"></span>
+                <span id="chkphon" style="color:red;"></span>
+
+                <h3>Hobby</h3>
+
+                <input type="checkbox" name="chk" value="reading"> Reading
+                
+                <input type="checkbox" name="chk" value="music"> Music
+                
+                <input type="checkbox" name="chk" value="game"> Game
+                
+                <input type="checkbox" name="chk" value="traveling"> Traveling
+
+                <br>
+                
+                <h3>Gender</h3>
+                <input type="radio" name="gender" value="m" >Male
+                <input type="radio" name="gender" value="f" >Female
+                <br>
+                <br>
+                <input type="submit" style="margin-left:150px ;">
+            </form>
+
+        </div>
+
+    </div>
+
+    
+
+</body>
+</html>
